@@ -1,9 +1,9 @@
 
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection.js');
-class Post extends Model {}
+class Pet extends Model {}
 
-Post.init(
+Pet.init(
   {
     // define columns
     id: {
@@ -12,13 +12,29 @@ Post.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    post_title: {
+    name: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    post_content: {
-        type: DataTypes.STRING,
-        allowNull: false,
+    breed: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+    age: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+    sex: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+    about_me: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+    about_you: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
     },
     user_id: {
         type: DataTypes.STRING,
@@ -34,8 +50,8 @@ Post.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'post',
+    modelName: 'pet',
   }
 );
 
-module.exports = Post;
+module.exports = Pet;

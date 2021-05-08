@@ -1,0 +1,83 @@
+[
+    {
+    "Pet name": "Pepper",
+    "Human handle": "Stacy",
+    "Breed": "Staffordshire Terrier",
+    "Temperament": "Likes other big dogs (only)",
+    "Age": "11",
+    "Sex": "male",
+    "Description": "Pepper is a big dumb dog, overenthused to play with other huge friends, not too excited about little yappers",
+    "Looking for": "Friends to go hike with or go for a swim"
+    },
+    {
+    "Pet name": "Abalone",
+    "Human handle": "Stacy",
+    "Breed": "Potlicker",
+    "Temperament": "Likes other big dogs (only)",
+    "Age": "10",
+    "Sex": "female",
+    "Description": "Abalone is a watch dog, one person only kind of dog",
+    "Looking for": "Friends to swim with"
+    },
+    {
+    "Pet name": "Wolfy",
+    "Human handle": "Ashton",
+    "Breed": "German Shepard",
+    "Temperament": "Likes everyone, except her sister",
+    "Age": "1",
+    "Sex": "female",
+    "Description": "Super hyper and ready to get some energy out",
+    "Looking for": "Friends to run, bounce, play, roll, anything!"
+    },
+    {
+        "Pet name": "Chauncy",
+        "Human handle": "Tessa",
+        "Breed": "German Shepard",
+        "Temperament": "Likes everyone",
+        "Age": "1",
+        "Sex": "female",
+        "Description": "Super hyper and ready to get some energy out",
+        "Looking for": "Someone to play with that likes her more than her sister"
+    },
+    {
+        "Pet name": "Charlie",
+        "Human handle": "Felicia",
+        "Breed": "Lab mix",
+        "Temperament": "friendly with people and dogs",
+        "Age": "9",
+        "Sex": "male",
+        "Description": "full of energy",
+        "Looking for": "Someone to rough house with"
+    },
+    {
+        "Pet name": "Bane",
+        "Human handle": "Felicia",
+        "Breed": "Pit bull mix",
+        "Temperament": "Likes small dogs only",
+        "Age": "8",
+        "Sex": "male",
+        "Description": "Laid back",
+        "Looking for": "A tiny dog with submissive behaviors"
+    },
+    {
+        "Pet name": "Nika",
+        "Human handle": "Lisa",
+        "Breed": "Border collie",
+        "Temperament": "Likes all dogs",
+        "Age": "3",
+        "Sex": "female",
+        "Description": "bounces off the walls hyper",
+        "Looking for": "Anyone to play play play!!!"
+    },
+    {
+        "Pet name": "Ollie",
+        "Human handle": "Derek",
+        "Breed": "Boston Terrier",
+        "Temperament": "Likes only big dogs",
+        "Age": "7",
+        "Sex": "male",
+        "Description": "really laid back",
+        "Looking for": "Someone to go on long walks"
+    }
+]
+

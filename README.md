@@ -38,6 +38,7 @@ BACKEND:
     - dotenv
     - bcrypt
     - connect-session-sequelize
+4. Third-Party API : Socket.IO
 
 FRONTEND:
 1. CSS
@@ -53,10 +54,19 @@ The following lists all functions within this project:
 #### Tasks
 
 Designated tasts and project member initials: see [**Project Members**](#project-members) section for reference
-* [ ] wireframe:
-* [ ] `project-proposal.md`: 
-* [ ] `README.md`: 
+* [ ] wireframe: SB
+* [ ] `proposal.md`: PH
+* [ ] `README.md`:
+* [ ] Socket.IO research: FW
 
+BACKEND:
+* [ ] MySQL `blob` for photo file uploads
+* [ ] Handlebars.js
+* [ ] Sequelize
+
+FRONTEND:
+* [ ] CSS
+* [ ] JS
 
 ### Beyond MVP:
 

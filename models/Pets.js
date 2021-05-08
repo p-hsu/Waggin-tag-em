@@ -16,7 +16,15 @@ Pet.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    human: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
     breed: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+    temperament: {
       type: DataTypes.INTEGER,
       allowNull: false,
     },

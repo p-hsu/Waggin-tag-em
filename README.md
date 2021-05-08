@@ -1,12 +1,10 @@
-# Waggin-tag'em
 
+![app banner](./assets/images/app-banner.png)
 ****
 
-## Project overview
+## Project overview [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-
-
-[Project Proposal](./project-proposal.md) : *Includes user story and acceptance criteria*
+- [Project Wireframe and Proposal PDF](./assets/wireframe.pdf) 
 
 ### Project Members:
 
@@ -38,11 +36,15 @@ BACKEND:
     - dotenv
     - bcrypt
     - connect-session-sequelize
-4. Third-Party API : Socket.IO
+    - multer
+4. Socket.IO
 
 FRONTEND:
 1. CSS
-2. JavaScript 
+    - Materialize
+2. JavaScript
+    - Materialize
+    - Media Queries
 
 ### Functionality:
 
@@ -54,15 +56,17 @@ The following lists all functions within this project:
 #### Tasks
 
 Designated tasts and project member initials: see [**Project Members**](#project-members) section for reference
-* [ ] wireframe: SB
-* [ ] `proposal.md`: PH
-* [ ] `README.md`:
-* [ ] Socket.IO research: FW
+* [x] wireframe: SB
+* [x] `proposal.md`: PH
+* [ ] `README.md`: PH
 
 BACKEND:
-* [ ] MySQL `blob` for photo file uploads
-* [ ] Handlebars.js
-* [ ] Sequelize
+* [ ] multer package and `datatype: BLOB` : 
+* [ ] Handlebars.js views : 
+* [ ] Sequelize controllers :
+* [ ] Sequelize seeds : FW/PH/SB
+* [ ] Sequelize models : FW/PH/SB
+* [ ] Socket.IO : FW
 
 FRONTEND:
 * [ ] CSS
@@ -88,8 +92,9 @@ FRONTEND:
     * `.gitignore` file
 
 ### Wireframe
+Home page screenshot: please view the PDF file above for full wireframe
 
-
+![homepage wireframe](./assets/images/homepage.png)
 
 ### MVP screenshot
 

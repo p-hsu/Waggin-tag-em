@@ -61,9 +61,9 @@ Designated tasts and project member initials: see [**Project Members**](#project
 * [ ] `README.md`: PH
 
 BACKEND:
-* [ ] multer package and `datatype: BLOB` : 
+* [ ] multer package and `datatype: BLOB` : SB/PH
 * [ ] Handlebars.js views : 
-* [ ] Sequelize controllers :
+* [ ] Sequelize controllers : FW
 * [ ] Sequelize seeds : FW/PH/SB
 * [ ] Sequelize models : FW/PH/SB
 * [ ] Socket.IO : FW

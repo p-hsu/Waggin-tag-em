@@ -24,7 +24,7 @@ router.get('/', (req, res) => {
     .then(petData => {
         const pets = petData.map(pet => pet.get({ plain: true }));
         console.log("this is the pets+++++++++", pets)
-        res.render('homepage', { pets, loggedIn: req.session.loggedIn });
+        res.render('homepage', { pets, logged_in: req.session.logged_in });
     })
     .catch(err => {
         console.log(err);

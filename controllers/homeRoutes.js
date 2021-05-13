@@ -23,6 +23,7 @@ router.get('/', (req, res) => {
     })
     .then(petData => {
         const pets = petData.map(pet => pet.get({ plain: true }));
+        console.log("this is the pets+++++++++", pets)
         res.render('homepage', { pets, loggedIn: req.session.loggedIn });
     })
     .catch(err => {

@@ -2,48 +2,47 @@
 const router = require('express').Router();
 const { User, Pet } = require('../../models');
 
-// COMMENTED OUT CODE FOR TESTING IN INSOMNIA
 // // shows all users
-// router.get('/', async (req, res) => {
-//     // find all users and associated pets
-//     try {
-//     const userData = await User.findAll({ 
-//         include: [
-//             { 
-//                 model: Pet 
-//             }
-//         ] 
-//     });
-//     res.status(200).json(userData);
+router.get('/', async (req, res) => {
+    // find all users and associated pets
+    try {
+    const userData = await User.findAll({ 
+        include: [
+            { 
+                model: Pet 
+            }
+        ] 
+    });
+    res.status(200).json(userData);
 
-//     } catch (err) {
-//       res.status(500).json(err);
-//     }
-//   });
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  });
 
-// router.get('/:id', async (req, res) => {
-// // find one user by id and associated pets
-// try {
-//     const userData = await User.findByPk(
-//         req.params.id, {
-//             include: [
-//                 { 
-//                     model: Pet 
-//                 }
-//             ] 
-//         }
-//     );
+router.get('/:id', async (req, res) => {
+// find one user by id and associated pets
+try {
+    const userData = await User.findByPk(
+        req.params.id, {
+            include: [
+                { 
+                    model: Pet 
+                }
+            ] 
+        }
+    );
 
-//     if (!userData) {
-//     res.status(404).json({message: 'No user found with that ID!'});
-//     return;
-//     }
-//     res.status(200).json(userData);
+    if (!userData) {
+    res.status(404).json({message: 'No user found with that ID!'});
+    return;
+    }
+    res.status(200).json(userData);
 
-// }catch (err) {
-//     res.status(500).json(err);
-// }
-// });
+}catch (err) {
+    res.status(500).json(err);
+}
+});
 
 
 // create new user
@@ -65,7 +64,7 @@ router.post('/', async (req, res) => {
 // login with credentials
 router.post('/login', async (req, res) => {
   try {
-    const userData = await User.findOne({ where: { email: req.body.email} });
+    const userData = await User.findOne({ where: { user_name: req.body.user_name} });
 
     if (!userData) {
       res

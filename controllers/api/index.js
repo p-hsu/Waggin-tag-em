@@ -4,6 +4,6 @@ const userRoutes = require('./userRoutes');
 const petRoutes = require('./petRoutes')
 
 router.use('/users', userRoutes);
-router.use('/petRoutes', petRoutes)
+router.use('/pets', petRoutes)
 
 module.exports = router;

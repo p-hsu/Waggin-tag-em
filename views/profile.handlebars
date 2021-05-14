@@ -22,7 +22,7 @@
             <h5>Enter your new pet information below:</h5>
             <div class="row">
                 {{!-- Add Pet Form --}}
-                <form class="col s12">
+                <form class="col s12 new-pet-form">
                   <div class="row">
                     <div class="input-field col s6">
                       <input id="name" type="text" class="validate">
@@ -65,7 +65,23 @@
                       <label for="about_you">Describe the ideal companion for your pet...</label>
                     </div>
                   </div>
-                  <form action="#">
+                  {{!-- <form action="#">
+                    <div class="file-field input-field">
+                      <div class="btn">
+                        <span>Upload Photo</span>
+                        <input type="file">
+                      </div>
+                      <div class="file-path-wrapper">
+                        <input class="file-path validate" type="text">
+                      </div>
+                    </div>
+                  </form> --}}
+                  <button id="add-pet-btn" class="btn waves-effect waves-light" type="submit">Add New Pet</button>
+                </form>          
+              </div>
+
+              <div class="row">
+                  <form class="col s12 photo-upload-form" action="#">
                     <div class="file-field input-field">
                       <div class="btn">
                         <span>Upload Photo</span>
@@ -76,8 +92,6 @@
                       </div>
                     </div>
                   </form>
-                  <button id="add-pet-btn" class="btn waves-effect waves-light">Add New Pet</button>
-                </form>
               </div>
         </div>
     </div>

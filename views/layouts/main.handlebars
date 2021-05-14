@@ -19,27 +19,15 @@
                 <div class="nav-wrapper cyan lighten-1">
                     <a href="#" class="brand-logo">Waggin-Tag-Em</a>
                     <ul id="nav-mobile" class="right hide-on-med-and-down">
-                      <li>
-                        <a class="waves-effect waves-light btne" href="/">Home</a>
-                      </li> 
+                      <li><a class="waves-effect waves-light btne" href="/">Home</a></li> 
                       {{#if logged_in}}
-                      <li>
-                        <a class="waves-effect waves-light btn" href="/profile">Profile</a>
-                      </li>              
-                      <li>
-                        <a class="waves-effect waves-light btn" id="logoutBtn" href="/">Logout</a>
-                      </li>
-
+                      <li><a class="waves-effect waves-light btn" href="/profile">Profile</a></li>              
+                      <li><a class="waves-effect waves-light btn" id="logoutBtn" href="/">Logout</a></li>
                       {{else}}
                       <!-- Login Modal Trigger -->
-                      <li>
-                        <a class="waves-effect waves-light btn modal-trigger .modal-close" href="#modal1">Log In</a>
-                      </li>              
+                      <li><a class="waves-effect waves-light btn modal-trigger .modal-close" href="#modal1">Log In</a></li>              
                       <!-- Create Account Modal Trigger -->
-                      <li>
-                        <a class="waves-effect waves-light btn modal-trigger .modal-close" href="#modal2">Create Account</a>
-                      </li>
-
+                      <li><a class="waves-effect waves-light btn modal-trigger .modal-close" href="#modal2">Create Account</a></li>
                       {{/if}}
                     </ul>
                 </div>

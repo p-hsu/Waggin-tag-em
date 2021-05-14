@@ -1,56 +1,235 @@
 {{!-- GET user pets to display, option to add, edit, or delete pets --}}
 {{#if logged_in}}
 
-<h4> Welcome Back, {{user_name}} !</h4>
+<h4 class="profile-header"> Welcome Back, {{user_name}} !</h4>
 
 </br>
 
-{{!-- Modal to add new pet --}}
-<a class="waves-effect waves-light btn modal-trigger .modal-close" href="#add-modal">Add New Pet</a>
+<div class="modal-wrapper">
+  {{!-- Add New Pet Modal Trigger --}}
+  <div class="profile-options">
+    <a class="waves-effect waves-light btn modal-trigger .modal-close" href="#add-modal">Add New Pet</a>
+  </div>
+  {{!-- Edit Profile Modal Trigger --}}
+  <div class="profile-options">
+    <a class="waves-effect waves-light btn modal-trigger .modal-close" href="#edit-acct-modal">Edit Account</a>
+  </div>
+</div>
+
+    {{!-- Add New Pet Modal Structure --}}
     <div id="add-modal" class="modal">
         <div class="modal-content">
-            <p>Add pet form</p>
+            <h5>Enter your new pet information below:</h5>
+            <div class="row">
+                {{!-- Add Pet Form --}}
+                <form class="col s12">
+                  <div class="row">
+                    <div class="input-field col s6">
+                      <input id="name" type="text" class="validate">
+                      <label for="name">Pet Name</label>
+                    </div>
+                    <div class="input-field col s6">
+                      <input id="human" type="text" class="validate">
+                      <label for="human">Human Name</label>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="input-field col s6">
+                      <input id="age" type="text" class="validate">
+                      <label for="age">Age</label>
+                    </div>
+                    <div class="input-field col s6">
+                      <input id="sex" type="text" class="validate">
+                      <label for="sex">Sex</label>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="input-field col s6">
+                      <input id="breed" type="text" class="validate">
+                      <label for="breed">Breed</label>
+                    </div>
+                    <div class="input-field col s6">
+                      <input id="temperament" type="text" class="validate">
+                      <label for="temperament">Temperament</label>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="input-field col s12">
+                      <textarea id="about_me" class="materialize-textarea"></textarea>
+                      <label for="about_me">Tell us about your pet...</label>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="input-field col s12">
+                      <textarea id="about_you" class="materialize-textarea"></textarea>
+                      <label for="about_you">Describe the ideal companion for your pet...</label>
+                    </div>
+                  </div>
+                  <form action="#">
+                    <div class="file-field input-field">
+                      <div class="btn">
+                        <span>Upload Photo</span>
+                        <input type="file">
+                      </div>
+                      <div class="file-path-wrapper">
+                        <input class="file-path validate" type="text">
+                      </div>
+                    </div>
+                  </form>
+                  <button id="add-pet-btn" class="btn waves-effect waves-light">Add New Pet</button>
+                </form>
+              </div>
         </div>
     </div>
 
-{{!-- List of users pets --}}
-    {{#each pets as |pet| }}
-        <div class="row">
-    <div class="col s12 m6">
-        <div class="card">
-            <div class="card-image">
-                <img src="/images/schafer-dog-4312716_1920.jpg">
-                <span class="card-title">{{name}}</span>
-                <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">+</i></a>
-            </div>
-            <div class="card-content">
-                <p>Breed: {{breed}}</p>
-                <p>Sex: {{sex}}</p>
-                <p>Age: {{age}}</p>
-                <p>Temperament: {{temperament}}</p>
-                <p>About Me: {{about_me}}</p>
-                <p>About You: {{about_you}}</p>
-                <!-- Edit Pet Modal Trigger -->
-                <a class="waves-effect waves-light btn modal-trigger .modal-close" href="#modal4">Edit Pet</a>
-                    <div id="modal4" class="modal">
-                        <div class="modal-content">
-                            <p>Edit pet form</p>
-                        </div>
+    {{!-- Edit Account Modal Structure --}}
+     <div id="edit-acct-modal" class="modal signup-form">
+          <div class="modal-content">
+            {{!-- Edit Account Form--}}
+              <div class="row">
+                <form class="col s12">
+                  <div class="row">
+                    <div class="input-field col s6">
+                      <input id="first_name" type="text" class="validate" placeholder={{first_name}}>
+                      <label for="first_name">Update First Name</label>
                     </div>
-                <!-- Delete Pet Modal Trigger -->
-                <a class="waves-effect waves-light btn modal-trigger .modal-close" href="#modal3">Delete Pet</a>
-                    <div id="modal3" class="modal">
-                        <div class="modal-content">
-                            Are you sure you want to delete this Pet?
-                            <button id="yes-btn">Yes</button>
-                            <button id="no-btn">No</button>
-                        </div>
+                    <div class="input-field col s6">
+                      <input id="last_name" type="text" class="validate" placeholder={{last_name}}>
+                      <label for="last_name">Update Last Name</label>
                     </div>
-            </div>
+                  </div>
+                  <div class="row">
+                    <div class="input-field col s12">
+                      <input id="email" type="email" class="validate" placeholder={{email}}>
+                      <label for="email">Update Email</label>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col s6">
+                      <div class="input-field">
+                        <input id="username" type="text" class="validate" placeholder={{user_name}}>
+                        <label for="username">Update username</label>
+                      </div>
+                    </div>
+                    <div class="input-field col s6">
+                      <input id="password2" type="password" class="validate" placeholder={{password}}>
+                      <label for="password2">Update password</label>
+                    </div>
+                  </div>
+                  <button id="create-acct-btn" class="btn waves-effect waves-light">Save Changes</button>
+                </form>
+              </div>
+          </div>
         </div>
-    </div>
+
+
+<div>
+  <h5 class="profile-header">My Pets</h5>
 </div>
-{{/each}}
+
+
+{{!-- List of users pets --}}
+<div class="my-pets-wrapper">
+  {{#each pets as |pet| }}
+    <div class="row">
+      <div class="col s12 m6">
+        <div class="card">
+
+              <div class="card-image">
+                  <img src="/images/schafer-dog-4312716_1920.jpg">
+                  <span class="card-title card-panel cyan lighten-1">{{name}}</span>
+              </div>
+
+              <div class="card-content">
+                  <p>Breed: {{breed}}</p>
+                  <p>Sex: {{sex}}</p>
+                  <p>Age: {{age}}</p>
+                  <p>Temperament: {{temperament}}</p>
+                  <p>About Me: {{about_me}}</p>
+                  <p>About You: {{about_you}}</p>
+                  <!-- Edit Pet Modal Trigger -->
+                  <a class="waves-effect waves-light btn modal-trigger .modal-close" href="#edit-pet-modal">Edit Pet</a>
+                      <div id="edit-pet-modal" class="modal">
+                          <div class="modal-content">
+                              {{!-- Edit Pet Modal Structure --}}
+                            <div class="row">
+                              <form class="col s12">
+                                <div class="row">
+                                  <div class="input-field col s6">
+                                    <input id="name" type="text" class="validate" placeholder={{name}}>
+                                    <label for="name">Update Pet Name</label>
+                                  </div>
+                                  <div class="input-field col s6">
+                                    <input id="human" type="text" class="validate" placeholder={{human}}>
+                                    <label for="human">Update Human Name</label>
+                                  </div>
+                                </div>
+                                <div class="row">
+                                  <div class="input-field col s6">
+                                    <input id="age" type="text" class="validate" placeholder={{age}}>
+                                    <label for="age">Update Age</label>
+                                  </div>
+                                  <div class="input-field col s6">
+                                    <input id="sex" type="text" class="validate" placeholder={{sex}}>
+                                    <label for="sex">Update Sex</label>
+                                  </div>
+                                </div>
+                                <div class="row">
+                                  <div class="input-field col s6">
+                                    <input id="breed" type="text" class="validate" placeholder={{breed}}>
+                                    <label for="breed">Update Breed</label>
+                                  </div>
+                                  <div class="input-field col s6">
+                                    <input id="temperament" type="text" class="validate" placeholder={{temperament}}>
+                                    <label for="temperament">Update Temperament</label>
+                                  </div>
+                                  </div>
+                                  <div class="row">
+                                    <div class="input-field col s12">
+                                      <textarea id="about_me" class="materialize-textarea" placeholder="Update Description"></textarea>
+                                      <label for="about_me">Tell us about your pet...</label>
+                                    </div>
+                                  </div>
+                                  <div class="row">
+                                    <div class="input-field col s12">
+                                      <textarea id="about_you" class="materialize-textarea" placeholder="Update Companion Description"></textarea>
+                                      <label for="about_you">Describe the ideal companion for your pet...</label>
+                                    </div>
+                                  </div>
+                                  <form action="#">
+                                    <div class="file-field input-field">
+                                      <div class="btn">
+                                        <span>Update Photo</span>
+                                        <input type="file">
+                                      </div>
+                                      <div class="file-path-wrapper">
+                                        <input class="file-path validate" type="text">
+                                      </div>
+                                    </div>
+                                  </form>
+                                  <button id="add-pet-btn" class="btn waves-effect waves-light">Save Changes</button>
+                                </form>
+                              </div>
+                            </div>
+                          </div>
+                  <!-- Delete Pet Modal Trigger -->
+                  <a class="waves-effect waves-light btn modal-trigger .modal-close" href="#delete-modal">Delete Pet</a>
+                      <div id="delete-modal" class="modal">
+                          <div class="modal-content">
+                              Are you sure you want to delete {{name}}?
+                              <button id="yes-btn">Yes</button>
+                              <button id="no-btn">No</button>
+                          </div>
+                      </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  {{/each}}
+</div>
+
 
 {{else}}
 

@@ -69,30 +69,30 @@
                 <form class="col s12">
                   <div class="row">
                     <div class="input-field col s6">
-                      <input id="first_name" type="text" class="validate">
-                      <label for="first_name">First Name</label>
+                      <input id="new-first_name" type="text" class="validate">
+                      <label for="new-first_name">First Name</label>
                     </div>
                     <div class="input-field col s6">
-                      <input id="last_name" type="text" class="validate">
-                      <label for="last_name">Last Name</label>
+                      <input id="new-last_name" type="text" class="validate">
+                      <label for="new-last_name">Last Name</label>
                     </div>
                   </div>
                   <div class="row">
                     <div class="input-field col s12">
-                      <input id="email" type="email" class="validate">
-                      <label for="email">Email</label>
+                      <input id="new-email" type="email" class="validate">
+                      <label for="new-email">Email</label>
                     </div>
                   </div>
                   <div class="row">
                     <div class="col s6">
                       <div class="input-field">
-                        <input id="username" type="text" class="validate">
-                        <label for="username">Create a username:</label>
+                        <input id="new-user_name" type="text" class="validate">
+                        <label for="new-user_name">Create a username:</label>
                       </div>
                     </div>
                     <div class="input-field col s6">
-                      <input id="password2" type="password" class="validate">
-                      <label for="password2">Create a password:</label>
+                      <input id="new-password" type="password" class="validate">
+                      <label for="new-password">Create a password:</label>
                     </div>
                   </div>
                   <button id="create-acct-btn" class="btn waves-effect waves-light">Create Account</button>
@@ -118,10 +118,12 @@
     {{#if logged_in}}
 
     <script src="/js/logout.js"></script>
+
     {{else}}
+
     <script src="/js/login.js"></script>
     <script src="/js/newAccount.js"></script>
-    
+
     {{/if}}
 
     </body>

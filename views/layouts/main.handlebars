@@ -19,27 +19,15 @@
                 <div class="nav-wrapper cyan lighten-1">
                     <a href="#" class="brand-logo">Waggin-Tag-Em</a>
                     <ul id="nav-mobile" class="right hide-on-med-and-down">
-                      <li>
-                        <a class="waves-effect waves-light btne" href="/">Home</a>
-                      </li> 
+                      <li><a class="waves-effect waves-light btne" href="/">Home</a></li> 
                       {{#if logged_in}}
-                      <li>
-                        <a class="waves-effect waves-light btn" href="/profile">Profile</a>
-                      </li>              
-                      <li>
-                        <a class="waves-effect waves-light btn" id="logoutBtn" href="/">Logout</a>
-                      </li>
-
+                      <li><a class="waves-effect waves-light btn" href="/profile">Profile</a></li>              
+                      <li><a class="waves-effect waves-light btn" id="logoutBtn" href="/">Logout</a></li>
                       {{else}}
                       <!-- Login Modal Trigger -->
-                      <li>
-                        <a class="waves-effect waves-light btn modal-trigger .modal-close" href="#modal1">Log In</a>
-                      </li>              
+                      <li><a class="waves-effect waves-light btn modal-trigger .modal-close" href="#modal1">Log In</a></li>              
                       <!-- Create Account Modal Trigger -->
-                      <li>
-                        <a class="waves-effect waves-light btn modal-trigger .modal-close" href="#modal2">Create Account</a>
-                      </li>
-
+                      <li><a class="waves-effect waves-light btn modal-trigger .modal-close" href="#modal2">Create Account</a></li>
                       {{/if}}
                     </ul>
                 </div>
@@ -50,7 +38,7 @@
       <div id="modal1" class="modal login-form">
         <div class="modal-content">
 
-          <a class="waves-effect waves-light btn modal-trigger .modal-close" href="#modal2">Already have an account? Click here to sign in</a>
+          <a class="waves-effect waves-light btn modal-trigger modal-close" href="#modal2">Don't have an account yet? Click here to sign in</a>
           
           {{!-- Login Form in Modal  --}}
             <form>
@@ -74,37 +62,37 @@
         <div id="modal2" class="modal signup-form">
           <div class="modal-content">
 
-            <a class="waves-effect waves-light btn modal-trigger .modal-close" href="#modal1">Already have an account? Click here to log in</a>
+            <a class="waves-effect waves-light btn modal-trigger modal-close" href="#modal1">Already have an account? Click here to log in</a>
 
             {{!-- Create Account Form in Modal --}}
               <div class="row">
                 <form class="col s12">
                   <div class="row">
                     <div class="input-field col s6">
-                      <input id="first_name" type="text" class="validate">
-                      <label for="first_name">First Name</label>
+                      <input id="new-first_name" type="text" class="validate">
+                      <label for="new-first_name">First Name</label>
                     </div>
                     <div class="input-field col s6">
-                      <input id="last_name" type="text" class="validate">
-                      <label for="last_name">Last Name</label>
+                      <input id="new-last_name" type="text" class="validate">
+                      <label for="new-last_name">Last Name</label>
                     </div>
                   </div>
                   <div class="row">
                     <div class="input-field col s12">
-                      <input id="email" type="email" class="validate">
-                      <label for="email">Email</label>
+                      <input id="new-email" type="email" class="validate">
+                      <label for="new-email">Email</label>
                     </div>
                   </div>
                   <div class="row">
                     <div class="col s6">
                       <div class="input-field">
-                        <input id="username" type="text" class="validate">
-                        <label for="username">Create a username:</label>
+                        <input id="new-user_name" type="text" class="validate">
+                        <label for="new-user_name">Create a username:</label>
                       </div>
                     </div>
                     <div class="input-field col s6">
-                      <input id="password2" type="password" class="validate">
-                      <label for="password2">Create a password:</label>
+                      <input id="new-password" type="password" class="validate">
+                      <label for="new-password">Create a password:</label>
                     </div>
                   </div>
                   <button id="create-acct-btn" class="btn waves-effect waves-light">Create Account</button>
@@ -117,28 +105,26 @@
             {{{ body }}}
         </main>
         
-      
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="/js/index.js"></script>
+    {{!-- Script for Modals --}}
+    {{!-- <script>
+      $(document).ready(function(){
+        $('.modal').modal();
+      });
+    </script> --}}
 
+    {{#if logged_in}}
 
-      {{!-- JQuery --}}
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="/js/logout.js"></script>
 
-      {{!-- Materialize --}}
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    {{else}}
 
-      {{!-- Script for Modals --}}
-      <script>
-        $(document).ready(function(){
-          $('.modal').modal();
-        });
-      </script>
+    <script src="/js/login.js"></script>
+    <script src="/js/newAccount.js"></script>
 
-{{#if logged_in}}
-<script src="/js/logout.js"></script>
-
-{{else}}
-<script src="/js/login.js"></script>
-{{/if}}
+    {{/if}}
 
     </body>
 

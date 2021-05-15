@@ -1,4 +1,6 @@
 // CREATE NEW PUP PROFILE
+let pup_selected; 
+
 const newPupProfileHandler = async (event) => {
     event.preventDefault();
     console.log('function called')
@@ -66,7 +68,7 @@ const newPupProfileHandler = async (event) => {
   //   }
   // };
   
-document.querySelector('.new-pet-form').addEventListener('submit', newPupProfileHandler);
+
   
 //   document
 //     .querySelector('.post-list')
@@ -80,17 +82,20 @@ document.querySelector('.new-pet-form').addEventListener('submit', newPupProfile
 
 // EVENT DELEGATION FOR EACH PROFILE CARD
 const petHandler = (event) => {
+  console.log(event)
   // event delegation to determine delete vs edit btn
   event.preventDefault();
-  if (event.target.hasAttribute('data-delete-id')) {
+  if (event.target.hasAttribute('data-delete_id')) {
       deletePet(event);       
-  } else if (event.target.hasAttribute('data-update-id')) {
-      updatePet(event);
+  } else if (event.target.hasAttribute('data-update_id')) {
+      //updatePet(event);
+      pup_selected = event.target.dataset.update_id;
+     
   }
 };
 // get pet.id to DELETE request by id
 const deletePet = async (event) => {
-    const id = event.target.getAttribute('data-delete-id');
+    const id = event.target.getAttribute('data-delete_id');
     console.log(id);
 
     let confirmation = confirm('Are you sure you want to delete this pet profile?');
@@ -111,8 +116,11 @@ const deletePet = async (event) => {
 // get post.id to go to edit-post view
 const updatePet = async (event) => {
   event.preventDefault();
-  const id = event.target.getAttribute('data-update-id');
-
+  console.log(event)
+  console.log(pup_selected)
+  //const id = event.target.getAttribute('data-update-id');
+  const id = pup_selected;
+  console.log(id)
   const name = document.getElementById('update-name').value;
   const human = document.getElementById('update-human').value;
   const age = document.getElementById('update-age').value;
@@ -121,7 +129,6 @@ const updatePet = async (event) => {
   const temperament = document.getElementById('update-temperament').value;
   const about_me= document.getElementById('update-about_me').value;
   const about_you = document.getElementById('update-about_you').value;
-
   const response = await fetch(`/api/pets/${id}`, {
     method: 'PUT',
     body: JSON.stringify({
@@ -145,7 +152,6 @@ const updatePet = async (event) => {
   } else {
     alert(`Uh oh, couldn't edit your pet. Try again!`);
   }
-
 }
 
 // THE ISSUE WITH USING AN EVENT LISTENER
@@ -156,3 +162,7 @@ const updatePet = async (event) => {
 // SECOND EVENT LISTENER TO CLICK ON THE MODAL BUTTON
 
 document.querySelector('.pet-profile-card').addEventListener('click', petHandler)
+
+document.querySelector('.new-pet-form').addEventListener('submit', newPupProfileHandler);
+
+document.getElementById('update-btn').addEventListener('click', updatePet)

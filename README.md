@@ -62,15 +62,15 @@ Designated tasts and project member initials: see [**Project Members**](#project
 
 BACKEND:
 * [ ] multer package and `datatype: BLOB` : SB/PH
-* [ ] Handlebars.js views : 
-* [ ] Sequelize controllers : FW
+* [ ] Handlebars.js views : FW/PH/SB
+* [ ] Sequelize controllers : FW/PH/SB
 * [ ] Sequelize seeds : FW/PH/SB
 * [ ] Sequelize models : FW/PH/SB
 * [ ] Socket.IO : FW
 
 FRONTEND:
-* [ ] CSS
-* [ ] JS
+* [ ] CSS: FW/PH/SB
+* [ ] JS: FW/PH/SB
 
 ### Beyond MVP:
 

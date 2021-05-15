@@ -81,6 +81,7 @@ document.querySelector('.new-pet-form').addEventListener('submit', newPupProfile
 // EVENT DELEGATION FOR EACH PROFILE CARD
 const petHandler = (event) => {
   // event delegation to determine delete vs edit btn
+  event.preventDefault();
   if (event.target.hasAttribute('data-delete-id')) {
       deletePet(event);       
   } else if (event.target.hasAttribute('data-update-id')) {
@@ -146,5 +147,12 @@ const updatePet = async (event) => {
   }
 
 }
+
+// THE ISSUE WITH USING AN EVENT LISTENER
+// INSIDE A EVENT DELEGATED PARENT EVENT LISTENER
+// IS THAT IT TAKES THE EMPTY FIELDS AND
+// GOES DIRECTLY TO THE NEWLY UPDATED PET CARD
+// INSTEAD OF WAITING FOR USER INPUT AND THE
+// SECOND EVENT LISTENER TO CLICK ON THE MODAL BUTTON
 
 document.querySelector('.pet-profile-card').addEventListener('click', petHandler)

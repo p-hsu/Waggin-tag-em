@@ -1,5 +1,5 @@
 const sequelize = require('../config/connection');
-const { Pet, User } = require('../models');
+const { Pet, User, Image } = require('../models');
 const router = require('express').Router();
 // const withAuth = require('../utils/auth');
 
@@ -19,6 +19,10 @@ router.get('/', (req, res) => {
             {
                 model: User,
                 attributes: ['user_name']
+            },
+            {
+                model: Image,
+                attributes: ['name']
             }
         ]
     })
@@ -39,7 +43,15 @@ router.get('/profile', async (req, res) => {
         // Find the logged in user based on the session ID
         const userData = await User.findByPk(req.session.user_id, {
             attributes: { exclude: ['password'] },
-            include: [{ model: Pet }],
+            include: [
+                {
+                    model: Pet
+                },
+                {
+                    model: Image,
+                    attributes: ['name']
+                }
+            ],
         });
 
         const user = userData.get({ plain: true });

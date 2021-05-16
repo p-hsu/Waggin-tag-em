@@ -20,4 +20,12 @@ Image.belongsTo(User, {
   foreignKey: 'user_id'
 })
 
+Image.hasOne(Pet, {
+  foriengKey: 'image_id'
+})
+
+Pet.belongsTo(Image, {
+  foreignKey: 'image_id',
+})
+
 module.exports = { User, Pet, Image };

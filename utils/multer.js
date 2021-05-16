@@ -5,16 +5,16 @@ const path = require('path')
 const storage = multer.diskStorage({
   // THIS IS WHERE FILES WILL BE STORED
   destination: (req, file, cb) => {
-    cb(null, '/public/uploads')
+    cb(null, './public/uploads/')
   },
-  // THIS IS HOW THE FILENAME WILL BE RENDERED
+  // THIS IS HOW THE FILENAME WILL BE NAMED AFTER UPLOAD AS UNIQUE WITH DATE.NOW()
   filename: (req, file, cb) => {
-    cb(null, `${Date.now()} -wagtag-${file.originalname}`);
+    cb(null, file.fieldname + '-wagtag-' + Date.now() + path.extname(file.originalname));
   }
 });
 
 // file type check function
-const checkFileType = (file, cb) => {
+const checkFileType = (req, file, cb) => {
   // allowed ext
   const filetypes = /jpeg|jpg|png|gif/;
   // check ext
@@ -28,6 +28,15 @@ const checkFileType = (file, cb) => {
     cb('Error: File must be image!')
   }
 }
+
+// file type check function
+// const checkFileType = (req, file, cb) => {
+//   if (file.mimetype.startsWith("image")) {
+//     cb(null, true);
+//   }else {
+//     cb("Image file only.", false);
+//   }
+// };
 
 // init upload
 const upload = multer({

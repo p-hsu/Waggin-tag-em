@@ -17,18 +17,18 @@ router.post("/upload", upload.single("myImage"), async (req, res) => {
     const imageData = await Image.create({
       type: req.file.mimetype,
       name: req.file.originalname,
-      data: fs.readFileSync("/uploads/" + req.file.filename),
+      data: fs.readFileSync('./public/uploads/' + req.file.filename),
       user_id: req.session.user_id,
     }).then((image) => {
-      fs.writeFileSync("/tmp/" + image.name, image.data);
+      fs.writeFileSync("./public/tmp/" + image.name, image.data);
 
       return res.send(
-        `Upload sucess! <hr/><img src="${imageData.data}" class="responsive-img">`
+        `Upload sucess!`
       );
     });
   } catch (err) {
     console.log(err);
-    return res.send(`Upload unsucessful: ${error}`);
+    return res.send(`Upload unsucessful: ${err}`);
   }
 });
 

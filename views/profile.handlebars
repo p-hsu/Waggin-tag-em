@@ -36,7 +36,7 @@
           {{/if}}
 
           <span class="card-title card-panel cyan lighten-1">{{name}}</span>
-          <button data-photo_id="{{id}}"
+          <button id ="btn-photo-edit" data-pet_id="{{id}}" data-photo_id="{{image_id}}"
             class="waves-effect waves-light modal-trigger btn btn-large btn-floating halfway-fab right red"
             href="#upload-photo-modal">
             <i class="material-icons">add_a_photo</i>
@@ -175,25 +175,23 @@
 <div id="upload-photo-modal" class="modal">
   <div class="modal-content">
     <div class="row">
-      <form class="col s12 photo-upload-form" action="/api/images/upload" method="POST"
-        enctype="multipart/form-data">
+      {{!-- --}}
+      <form action="/api/images/upload" method="POST"  enctype="multipart/form-data" class="col s12 photo-upload-form"
+       >
         <div class="file-field input-field">
           <div class="btn">
               <i class="material-icons center">insert_photo</i>
-            <input type="file" name="myImage">
+            <input id="myImage" type="file"  name="myImage">
           </div>
           <div class="file-path-wrapper">
             <input class="file-path validate" type="text" id="image_file">
           </div>
         </div>
-        <button class="btn photo-btn right">Upload</button>
+        <button class="btn photo-btn right" type="submit" id="photo-btn">Upload</button>
       </form>
     </div>
   </div>
 </div>
-
-
-
 
 {{!-- UPDATE >> ACCOUNT << --}} 
 <div id="update-acct-modal" class="modal signup-form">
@@ -244,4 +242,4 @@
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script src="/js/profile.js"></script>
-{{!--<script src="/js/upload.js"></script> --}}
+{{!-- <script src="/js/upload.js"></script> --}}

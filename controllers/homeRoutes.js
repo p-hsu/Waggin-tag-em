@@ -1,6 +1,8 @@
 const sequelize = require('../config/connection');
 const { Pet, User, Image } = require('../models');
 const router = require('express').Router();
+// const fs = require('fs');
+// const upload = require('../utils/multer')
 // const withAuth = require('../utils/auth');
 
 // Home page lists all pets in database
@@ -54,7 +56,7 @@ router.get('/profile', async (req, res) => {
         });
 
         const user = userData.get({ plain: true });
-
+        console.log(user)
         res.render('profile', {
             ...user,
             logged_in: true
@@ -64,27 +66,32 @@ router.get('/profile', async (req, res) => {
   }
 });
 
-// rendering images by id
-router.get("/:id", async (req, res) => {
-    // find one image by id
-    try {
-      const imgData = await Image.findByPk(req.params.id, {
-        include: [
-          {
-            model: Pet,
-          },
-        ],
-      });
+
+// // post request > stores into uploads, tmp, and db using pet_id
+// router.post("/profile/upload", upload.single("myImage"), async (req, res) => {
+//     try {
+//       console.log(req.file);
   
-      const image = imgData.get({ plain: true });
+//       // if (req.file == undefined) {
+//       //   return res.send("No file was selected.");
+//       // }
   
-      res.render('profile', {
-          ...image,
-          logged_in:req.session.logged_in
-      });
-    } catch (err) {
-      res.status(500).json(err);
-    }
-  });
+//       Image.create({
+//         type: req.file.mimetype,
+//         name: req.file.originalname,
+//         data: fs.readFileSync('./public/uploads/' + req.file.filename),
+//         user_id: req.session.user_id,
+//       }).then((image) => {
+//         fs.writeFileSync("./public/tmp/" + image.name, image.data);
+  
+//     //   res.send(`Upload sucess!`);
+//     //   res.redirect('profile');
+//       });
+//     } catch (err) {
+//       console.log(err);
+//       // res.send(`Upload unsucessful: ${err}`);
+//       res.status(400).json(err);
+//     }
+//   });
 
 module.exports = router;

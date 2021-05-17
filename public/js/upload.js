@@ -7,10 +7,10 @@ const uploadImageHandler = async (event) => {
     // if value exists
     if (image_file) {
       // fetch from the GET endpoint
-      const response = await fetch('/api/images/', {
-        method: 'POST',
+      const response = await fetch('/profile', {
+        method: 'PUT',
         body: JSON.stringify({ image_file }),
-        // headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'application/json' },
       });
 
       console.log(response)
@@ -23,5 +23,4 @@ const uploadImageHandler = async (event) => {
     }
   };
   
-  
-  document.querySelector('.photo-btn').addEventListener('click', uploadImageHandler);
+document.getElementById('.photo-btn').addEventListener('click', uploadImageHandler);

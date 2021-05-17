@@ -74,12 +74,20 @@
               </div>
               <div class="row">
                 <div class="input-field col s6">
-                  <input id="new-age" type="text" class="validate">
-                  <label for="new-age">Age</label>
+                  <select id="new-age">
+                    <option value="">Age</option>
+                    <option value="under 1 year">under 1 year</option>
+                    <option value="1-5 years">1-5 years</option>
+                    <option value="5-10 years">5-10 years</option>
+                    <option value="10 years or older">10 years or older</option>
+                  </select>
                 </div>
                 <div class="input-field col s6">
-                  <input id="new-sex" type="text" class="validate">
-                  <label for="new-sex">Sex</label>
+                  <select id="new-sex">
+                    <option value="">Sex</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                  </select>
                 </div>
               </div>
               <div class="row">
@@ -142,12 +150,21 @@
         </div>
         <div class="row">
           <div class="input-field col s6">
-            <input id="update-age" type="text" class="validate" placeholder={{age}}>
-            <label for="update-age">Update Age</label>
-          </div>
-          <div class="input-field col s6">
-            <input id="update-sex" type="text" class="validate" placeholder={{sex}}>
-            <label for="update-sex">Update Sex</label>
+                  <select id="update-age">
+                    <option value="">Age</option>
+                    <option value="under 1 year">under 1 year</option>
+                    <option value="1-5 years">1-5 years</option>
+                    <option value="5-10 years">5-10 years</option>
+                    <option value="10 years or older">10 years or older</option>
+                  </select>
+                </div>
+                <div class="input-field col s6">
+                  <select id="update-sex">
+                    <option value="">Sex</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                  </select>
+                </div>
           </div>
         </div>
         <div class="row">
@@ -238,3 +255,8 @@
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script src="/js/profile.js"></script>
+
+{{!-- Script for age and sex select dropdown --}}
+<script>  $(document).ready(function(){
+    $('select').formSelect();
+  });</script>

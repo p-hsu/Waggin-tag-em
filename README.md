@@ -20,9 +20,9 @@
 
 **ONGOING**
 
-****
-
 ## MVP
+
+Humans have a wide variety of dating apps, so why not use one for our pup friends, they like to socialize too!  ‘Waggin Tag Em’ allows users to create pup profiles and contact users that have like-minded canine compatibilities and interests! 
 
 ### Project-build Aspects:
 
@@ -32,12 +32,16 @@ BACKEND:
 1. Handlebar.js: to handle templating language
 2. Sequelize: to handle Object-relational Mapping
 3. NPM packages:
+    - express
     - express-session
+    - express-handlebars
     - dotenv
     - bcrypt
     - connect-session-sequelize
     - multer
-4. Socket.IO
+    - sequelize
+    - mysql2
+    - heroku addons:create jawsdb
 
 FRONTEND:
 1. CSS
@@ -50,17 +54,17 @@ FRONTEND:
 
 The following lists all functions within this project:
 
-
-
 ### Process:
+
 #### Tasks
 
 Designated tasts and project member initials: see [**Project Members**](#project-members) section for reference
-* [x] wireframe: SB
+* [x] wireframe: SM
 * [x] `proposal.md`: PH
-* [ ] `README.md`: PH
+* [x] `README.md`: PH
 
 BACKEND:
+<<<<<<< HEAD
 * [ ] multer package and `datatype: BLOB` : SB/PH
 * [ ] Handlebars.js views : FW/PH/SB
 * [ ] Sequelize controllers : FW/PH/SB
@@ -71,10 +75,21 @@ BACKEND:
 FRONTEND:
 * [ ] CSS: FW/PH/SB
 * [ ] JS: FW/PH/SB
+=======
+* [x] multer package and `datatype: BLOB` : SM/PH
+* [x] Handlebars.js views : FW/PH
+* [x] Sequelize controllers : FW/SM
+* [x] Sequelize seeds : FW/PH/SM
+* [x] Sequelize models : FW/PH/SM
+
+FRONTEND:
+* [x] CSS: FW
+* [x] JS: FW/PH/SM
+>>>>>>> main
 
 ### Beyond MVP:
 
-
+To create an additional HTML with a pup "friending" feature that also has the ability to search for friends by location and view saved pup friends.
 ****
 
 ## Installation
@@ -98,7 +113,7 @@ Home page screenshot: please view the PDF file above for full wireframe
 
 ### MVP screenshot
 
-
+![MVP screenshot](XXXXXXXXXXXXX)
 
 ****
 
@@ -106,6 +121,7 @@ Home page screenshot: please view the PDF file above for full wireframe
 
 Please use the following link to deploy a live URL of this project:
 
+[Heroku deployed site](https://afternoon-waters-57666.herokuapp.com/)
 
 
 ****

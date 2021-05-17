@@ -1,8 +1,14 @@
-<div class="row">
-    <div class="col s12 m6 center">
+
+    <div class="col s12 m6 ">
         <div class="card">
         <div class="card-image">
+
+            {{#if image.name}}
+            <img src="/uploads/{{image.name}}">
+            {{else}}
             <img src="/images/schafer-dog-4312716_1920.jpg">
+            {{/if}}
+            
             <span class="card-title card-panel cyan lighten-1">{{name}}</span>
             <a class="btn-floating btn-large halfway-fab waves-effect waves-light red"><i class="far fa-comment-alt"></i></a>
         </div>
@@ -17,4 +23,3 @@
         </div>
         </div>
     </div>
-</div>

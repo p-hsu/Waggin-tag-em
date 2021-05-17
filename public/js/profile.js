@@ -117,10 +117,8 @@ const deletePet = async (event) => {
 const updatePet = async (event) => {
   event.preventDefault();
   console.log(event)
-  console.log(pup_selected)
   //const id = event.target.getAttribute('data-update-id');
   const id = pup_selected;
-  console.log(id)
   const name = document.getElementById('update-name').value;
   const human = document.getElementById('update-human').value;
   const age = document.getElementById('update-age').value;

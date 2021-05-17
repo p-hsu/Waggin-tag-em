@@ -28,7 +28,6 @@ router.get('/', (req, res) => {
     })
     .then(petData => {
         const pets = petData.map(pet => pet.get({ plain: true }));
-        console.log("this is the pets+++++++++", pets)
         res.render('homepage', { pets, logged_in: req.session.logged_in });
     })
     .catch(err => {
@@ -64,5 +63,28 @@ router.get('/profile', async (req, res) => {
         res.status(500).json(err);
   }
 });
+
+// rendering images by id
+router.get("/:id", async (req, res) => {
+    // find one image by id
+    try {
+      const imgData = await Image.findByPk(req.params.id, {
+        include: [
+          {
+            model: Pet,
+          },
+        ],
+      });
+  
+      const image = imgData.get({ plain: true });
+  
+      res.render('profile', {
+          ...image,
+          logged_in:req.session.logged_in
+      });
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  });
 
 module.exports = router;

@@ -5,7 +5,7 @@
     <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Waggin-Tag-Em</title>
+      <title>Waggin'-Tag'Em</title>
       <link rel="stylesheet" href="/css/style.css">
       {{!-- Materialize --}}
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
@@ -18,9 +18,9 @@
         <header>
             <nav>
                 <div class="nav-wrapper cyan lighten-1">
-                    <a href="#" class="brand-logo">Waggin-Tag-Em</a>
+                    <a href="#" class="brand-logo red-text text-lighten-1">Waggin'-Tag'Em</a>
                     <ul id="nav-mobile" class="right hide-on-med-and-down">
-                      <li><a class="waves-effect waves-light btne" href="/">Home</a></li> 
+                      <li><a class="waves-effect waves-light btn" href="/">Home</a></li> 
                       {{#if logged_in}}
                       <li><a class="waves-effect waves-light btn" href="/profile">Profile</a></li>              
                       <li><a class="waves-effect waves-light btn" id="logoutBtn" href="/">Logout</a></li>
@@ -102,19 +102,13 @@
           </div>
         </div>
 
-        <main>
+        <div class="container">
             {{{ body }}}
-        </main>
+        </div>
         
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="/js/index.js"></script>
-    {{!-- Script for Modals --}}
-    {{!-- <script>
-      $(document).ready(function(){
-        $('.modal').modal();
-      });
-    </script> --}}
 
     {{#if logged_in}}
 

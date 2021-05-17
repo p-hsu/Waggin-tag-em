@@ -1,12 +1,13 @@
-// I DONT THINK THIS IS NEEDED...
+// the upload button 
 
 const uploadImageHandler = async (event) => {
     event.preventDefault();
-    // Collect values from the login form
+    // Collect file.original name from input field
     const image_file = document.getElementById('image_file').value.trim();
+    // if value exists
     if (image_file) {
-      // Send a POST request to the API endpoint
-      const response = await fetch('/api/pets/images/', {
+      // fetch from the GET endpoint
+      const response = await fetch('/api/images/', {
         method: 'POST',
         body: JSON.stringify({ image_file }),
         // headers: { 'Content-Type': 'application/json' },

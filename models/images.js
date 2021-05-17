@@ -33,6 +33,7 @@ Image.init(
         }
     }
   },
+
   {
     sequelize,
     timestamps: false,

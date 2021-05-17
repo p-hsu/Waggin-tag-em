@@ -21,7 +21,7 @@ Image.belongsTo(User, {
 })
 
 Image.hasOne(Pet, {
-  foriengKey: 'image_id'
+  foreignKey: 'image_id'
 })
 
 Pet.belongsTo(Image, {

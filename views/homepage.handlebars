@@ -1,12 +1,9 @@
-<main>
-    <section>
+<h4 class="center cyan-text text-darken-3">Looking for a play-mate to keep your pup happy, healthy?</h4>
+<h5 class="center">You're at the right place, check out all the potential new furry friends below.</h5>
+<h5 class="center"><span class="red-text">TAG'EM </span>to keep 'em <span class="red-text">WAGGIN' </span>!</h5>
+</br>
 
-    {{#each pets as |pet| }}
+{{#each pets as |pet| }}
+{{> all-pets pet}}
+{{/each}}
 
-        {{> all-pets pet}}
-
-    {{/each}}
-
-</section>
-
-</main>

@@ -32,6 +32,9 @@ body {
 
 @media screen and (max-width: 550px) {
     .brand-logo {
-        font-size: 1em;
+        display: none;
+    }
+    .sidenav-trigger {
+        justify-content:center
     }
 }

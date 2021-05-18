@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const  {Pet, User} = require('../../models');
+const  {Pet, User, Image} = require('../../models');
 const withAuth = require('../../utils/auth');
 
 // creating new pet
@@ -69,6 +69,5 @@ router.delete('/:id', withAuth, async (req, res) => {
     res.status(500).json(err);
   }
 });
-
 
 module.exports = router;

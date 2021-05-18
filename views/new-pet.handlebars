@@ -1,0 +1,89 @@
+<div class="container">
+
+</br>
+<h5>Enter your new pet information below:</h5>
+</br>
+<div class="col s12 m6">
+    <div class="card">
+        <div class="card-content">
+            <form class="row new-pet-form">
+                <div class="row">
+                    <div class="input-field col s6">
+                        <input id="new-name" type="text" class="validate">
+                        <label for="new-name">Pet Name</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input id="new-human" type="text" class="validate">
+                        <label for="new-human">Human Name</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s6">
+                        <select id="new-age">
+                            <option value="">Age</option>
+                            <option value="under 1 year">under 1 year</option>
+                            <option value="1-5 years">1-5 years</option>
+                            <option value="5-10 years">5-10 years</option>
+                            <option value="10 years or older">10 years or older</option>
+                        </select>
+                    </div>
+                    <div class="input-field col s6">
+                        <select id="new-sex">
+                            <option value="">Sex</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s6">
+                        <input id="new-breed" type="text" class="validate">
+                        <label for="new-breed">Breed</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input id="new-temperament" type="text" class="validate">
+                        <label for="new-temperament">Temperament</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <textarea id="new-about_me" class="materialize-textarea"></textarea>
+                        <label for="new-about_me">Tell us about your pet...</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <textarea id="new-about_you" class="materialize-textarea"></textarea>
+                        <label for="new-about_you">Describe the ideal companion for your pet...</label>
+                    </div>
+                </div>
+                <button id="add-pet-btn" class="btn waves-effect waves-light" type="submit" name="action">Add New Pet</button>
+            </form>
+        </div>
+    </div>
+</div>
+ 
+<div class="col s12 m6">
+    <div class="card">
+        <div class="card-content">
+            <form action="/profile/new-pet" method="POST"  enctype="multipart/form-data" class="row photo-upload-form">
+                <div class="file-field input-field col12">
+                    <div class="btn">
+                        <i class="material-icons center">insert_photo</i>
+                        <input id="myImage" type="file"  name="myImage">
+                    </div>
+                    <div class="file-path-wrapper">
+                        <input class="file-path validate" type="text" id="image_file">
+                    </div>
+                </div>
+                <button class="btn photo-btn right" type="submit" id="photo-btn">Upload</button>
+            </form>
+
+            <div class="preview-photo"></div>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="/js/new-pet.js"></script>
+<script src="/js/index.js"></script>

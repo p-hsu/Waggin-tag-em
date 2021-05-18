@@ -1,10 +1,28 @@
-<main>
-    <section>
+<div class="wrapper">
 
-    {{#each pets as |pet| }}
-        {{> all-pets pet}}
-    {{/each}}
+  <h4 class="center cyan-text text-darken-3">Looking for a play-mate to keep your pup happy, healthy?</h4>
+  <h5 class="center">You're at the right place, check out all the potential new furry friends below.</h5>
+  <h5 class="center"><span class="red-text">TAG'EM </span>to keep 'em <span class="red-text">WAGGIN' </span>!</h5>
 
-</section>
+</div>
 
-</main>
+<div class="container">
+
+</br>
+
+{{#each pets as |pet| }}
+{{> all-pets pet}}
+{{/each}}
+
+
+
+  <!-- Modal Structure -->
+  <div id="chat-modal" class="modal bottom-sheet">
+    <div class="modal-content">
+      <h4>Chat feature!</h4>
+      <p>Socket.IO to be implemented here</p>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat btn"><i class="material-icons">send</i></a>
+    </div>
+  </div>

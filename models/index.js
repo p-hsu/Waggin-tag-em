@@ -11,6 +11,10 @@ Pet.belongsTo(User, {
   foreignKey: 'user_id'
 });
 
+Pet.belongsTo(Image, {
+  foreignKey: 'image_id'
+})
+
 User.hasMany(Image, {
   foreignKey: 'user_id',
   onDelete: 'CASCADE'
@@ -19,5 +23,10 @@ User.hasMany(Image, {
 Image.belongsTo(User, {
   foreignKey: 'user_id'
 })
+
+Image.hasOne(Pet, {
+  foreignKey: 'image_id'
+})
+
 
 module.exports = { User, Pet, Image };

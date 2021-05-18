@@ -6,6 +6,7 @@ const routes = require('./controllers');
 const helpers = require('./utils/helpers');
 const sequelize = require('./config/connection');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
+// const multer = require('multer');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -21,6 +22,21 @@ const sess = {
     db: sequelize
   })
 };
+
+// // storage engine for multer
+// const storage = multer.diskStorage({
+//   destination: './public/uploads',
+//   filename: function(req, file, cb){
+//     cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
+//   }
+// });
+
+// // init upload
+// const upload = multer({
+//   storage: storage
+// }).single('myImage');
+
+
 app.use(session(sess));
 // Inform Express.js on which template engine to use
 app.engine('handlebars', hbs.engine);

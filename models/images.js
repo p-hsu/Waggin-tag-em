@@ -32,7 +32,16 @@ Image.init(
             key: 'id'
         }
     }
+    // pet_id: {
+    //   type: DataTypes.INTEGER,
+    //   allowNull: false,
+    //   references: {
+    //       model: 'pet',
+    //       key: 'id'
+    //   }
+  // }
   },
+
   {
     sequelize,
     timestamps: false,

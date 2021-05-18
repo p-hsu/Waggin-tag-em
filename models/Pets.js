@@ -51,7 +51,15 @@ Pet.init(
             model: 'user',
             key: 'id'
         }
-    }
+    },
+    image_id: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+      references: {
+          model: 'image',
+          key: 'id'
+      }
+  }
   },
   {
     sequelize,

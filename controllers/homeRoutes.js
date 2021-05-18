@@ -1,9 +1,9 @@
 const sequelize = require('../config/connection');
 const { Pet, User, Image } = require('../models');
 const router = require('express').Router();
-// const fs = require('fs');
-// const upload = require('../utils/multer')
-// const withAuth = require('../utils/auth');
+const fs = require('fs');
+const upload = require('../utils/multer')
+const withAuth = require('../utils/auth');
 
 // Home page lists all pets in database
 router.get('/', (req, res) => {
@@ -50,7 +50,6 @@ router.get('/profile', async (req, res) => {
                 },
                 {
                     model: Image,
-                    attributes: ['name']
                 }
             ],
         });
@@ -66,32 +65,35 @@ router.get('/profile', async (req, res) => {
   }
 });
 
+// get request for new-pet view
+router.get('/profile/new-pet', withAuth, async (req, res) => res.render('new-pet', { logged_in: req.session.logged_in } ));
 
-// // post request > stores into uploads, tmp, and db using pet_id
-// router.post("/profile/upload", upload.single("myImage"), async (req, res) => {
-//     try {
-//       console.log(req.file);
-  
-//       // if (req.file == undefined) {
-//       //   return res.send("No file was selected.");
-//       // }
-  
-//       Image.create({
-//         type: req.file.mimetype,
-//         name: req.file.originalname,
-//         data: fs.readFileSync('./public/uploads/' + req.file.filename),
-//         user_id: req.session.user_id,
-//       }).then((image) => {
-//         fs.writeFileSync("./public/tmp/" + image.name, image.data);
-  
-//     //   res.send(`Upload sucess!`);
-//     //   res.redirect('profile');
-//       });
-//     } catch (err) {
-//       console.log(err);
-//       // res.send(`Upload unsucessful: ${err}`);
-//       res.status(400).json(err);
-//     }
-//   });
+
+// post request > stores into uploads, tmp, and db using pet_id
+router.post("/profile/new-pet", upload.single("myImage"), async (req, res) => {
+    try {
+        console.log(req.file);
+
+        // if (req.file == undefined) {
+        //   return res.send("No file was selected.");
+        // }
+
+       await Image.create({
+            type: req.file.mimetype,
+            name: req.file.originalname,
+            data: fs.readFileSync('./public/uploads/' + req.file.filename),
+            user_id: req.session.user_id,
+        })
+
+        res.redirect('/profile/new-pet');
+
+    } catch (err) {
+      console.log(err);
+      // res.send(`Upload unsucessful: ${err}`);
+      res.status(400).json(err);
+    }
+  });
+
+
 
 module.exports = router;

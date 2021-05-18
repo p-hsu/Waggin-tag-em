@@ -10,7 +10,7 @@ const storage = multer.diskStorage({
   },
   // THIS IS HOW THE FILENAME WILL BE NAMED AFTER UPLOAD AS UNIQUE WITH DATE.NOW()
   filename: (req, file, cb) => {
-    cb(null, file.originalname + '-wagtag-' + Date.now() + path.extname(file.originalname));
+    cb(null, file.originalname);
   }
 });
 

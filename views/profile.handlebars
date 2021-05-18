@@ -1,6 +1,6 @@
 {{!-- GET user pets to display, option to add, edit, or delete pets --}}
 {{#if logged_in}}
-
+<div class="container">
 <h4 class="profile-header"> Welcome to your profile,<span class="red-text"> {{user_name}}</span> !</h4>
 
 </br>
@@ -8,7 +8,7 @@
 <div class="modal-wrapper">
   {{!-- Add New Pet Modal Trigger --}}
   <div class="profile-options">
-    <a class="waves-effect waves-light btn modal-trigger modal-close" href="#add-modal">Add New Pet</a>
+    <a class="waves-effect waves-light btn new-pet-btn" href="/profile/new-pet" type="button" name="action">Add New Pet</a>
   </div>
   {{!-- Update Profile Modal Trigger --}}
   <div class="profile-options">
@@ -28,13 +28,7 @@
     <div class="col s12 m6 offset-m3">
       <div class="card">
         <div class="card-image">
-
-          {{#if image.name}}
-          <img src="/uploads/{{image.name}}">
-          {{else}}
           <img src="/images/schafer-dog-4312716_1920.jpg">
-          {{/if}}
-
           <span class="card-title card-panel cyan lighten-1">{{name}}</span>
           <button id ="btn-photo-edit" data-pet_id="{{id}}" data-photo_id="{{image_id}}"
             class="waves-effect waves-light modal-trigger btn btn-large btn-floating halfway-fab right red"
@@ -81,14 +75,21 @@
           </div>
         </div>
         <div class="row">
-<<<<<<< HEAD
           <div class="input-field col s6">
-            <input id="new-age" type="text" class="validate">
-            <label for="new-age">Age</label>
+            <select id="new-age">
+              <option value="">Age</option>
+              <option value="under 1 year">under 1 year</option>
+              <option value="1-5 years">1-5 years</option>
+              <option value="5-10 years">5-10 years</option>
+              <option value="10 years or older">10 years or older</option>
+            </select>
           </div>
           <div class="input-field col s6">
-            <input id="new-sex" type="text" class="validate">
-            <label for="new-sex">Sex</label>
+            <select id="new-sex">
+              <option value="">Sex</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+            </select>
           </div>
         </div>
         <div class="row">
@@ -114,62 +115,7 @@
           </div>
         </div>
         <button id="add-pet-btn" class="btn waves-effect waves-light" type="submit">Add New Pet</button>
-      </form>
-=======
-            {{!-- Add Pet Form --}}
-            <form class="col s12 new-pet-form">
-              <div class="row">
-                <div class="input-field col s6">
-                  <input id="new-name" type="text" class="validate">
-                  <label for="new-name">Pet Name</label>
-                </div>
-                <div class="input-field col s6">
-                  <input id="new-human" type="text" class="validate">
-                  <label for="new-human">Human Name</label>
-                </div>
-              </div>
-              <div class="row">
-                <div class="input-field col s6">
-                  <select id="new-age">
-                    <option value="">Age</option>
-                    <option value="under 1 year">under 1 year</option>
-                    <option value="1-5 years">1-5 years</option>
-                    <option value="5-10 years">5-10 years</option>
-                    <option value="10 years or older">10 years or older</option>
-                  </select>
-                </div>
-                <div class="input-field col s6">
-                  <select id="new-sex">
-                    <option value="">Sex</option>
-                    <option value="Male">Male</option>
-                    <option value="Female">Female</option>
-                  </select>
-                </div>
-              </div>
-              <div class="row">
-                <div class="input-field col s6">
-                  <input id="new-breed" type="text" class="validate">
-                  <label for="new-breed">Breed</label>
-                </div>
-                <div class="input-field col s6">
-                  <input id="new-temperament" type="text" class="validate">
-                  <label for="new-temperament">Temperament</label>
-                </div>
-              </div>
-              <div class="row">
-                <div class="input-field col s12">
-                  <textarea id="new-about_me" class="materialize-textarea"></textarea>
-                  <label for="new-about_me">Tell us about your pet...</label>
-                </div>
-              </div>
-              <div class="row">
-                <div class="input-field col s12">
-                  <textarea id="new-about_you" class="materialize-textarea"></textarea>
-                  <label for="new-about_you">Describe the ideal companion for your pet...</label>
-                </div>
-              </div>
-              <button id="add-pet-btn" class="btn waves-effect waves-light" type="submit">Add New Pet</button>
-            </form>          
+      </form>          
           </div>
 
           <div class="row">
@@ -186,7 +132,6 @@
               </form>
           </div>
           
->>>>>>> main
     </div>
   </div>
 </div>
@@ -194,11 +139,12 @@
 {{!-- UPDATE PET --}}
 <div id="update-pet-modal" class="modal">
   <div class="modal-content">
+    <h5 class="teal-text">Don't forget to fill in <span class="red-text">ALL</span> fields!</h5>
     <div class="row">
       <form class="col s12">
         <div class="row">
           <div class="input-field col s6">
-            <input id="update-name" type="text" class="validate" placeholder={{name}}>
+            <input id="update-name" type="text" class="validate" placeholder={{pet.name}}>
             <label for="update-name">Update Pet Name</label>
           </div>
           <div class="input-field col s6">
@@ -248,6 +194,7 @@
             <label for="update-about_you">Describe the ideal companion for your pet...</label>
           </div>
         </div>
+        <button id="update-btn" class="btn waves-effect waves-light" type="submit" >Save Changes</button>
       </form>
     </div>
   </div>
@@ -258,7 +205,7 @@
   <div class="modal-content">
     <div class="row">
       {{!-- --}}
-      <form action="/api/images/upload" method="POST"  enctype="multipart/form-data" class="col s12 photo-upload-form"
+      <form action="/profile/new-pet" method="PUT  enctype="multipart/form-data" class="col s12 photo-upload-form"
        >
         <div class="file-field input-field">
           <div class="btn">
@@ -266,7 +213,7 @@
             <input id="myImage" type="file"  name="myImage">
           </div>
           <div class="file-path-wrapper">
-            <input class="file-path validate" type="text" id="image_file">
+            <input class="file-path validate" type="text" id="image_file" placeholder=">> THIS IS A NON-FUNCTIONAL MOCKUP <<">
           </div>
         </div>
         <button class="btn photo-btn right" type="submit" id="photo-btn">Upload</button>
@@ -322,16 +269,5 @@
 
 {{/if}}
 
-<<<<<<< HEAD
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-<script src="/js/profile.js"></script>
-{{!-- <script src="/js/upload.js"></script> --}}
-=======
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script src="/js/profile.js"></script>
-
-{{!-- Script for age and sex select dropdown --}}
-<script>  $(document).ready(function(){
-    $('select').formSelect();
-  });</script>
->>>>>>> main

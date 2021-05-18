@@ -1,89 +1,51 @@
 // CREATE NEW PUP PROFILE
 let pup_selected;
 let photo_id;
-const newPupProfileHandler = async (event) => {
-  event.preventDefault();
-  console.log("function called");
-  const name = document.getElementById("new-name").value;
-  const human = document.getElementById("new-human").value;
-  const age = document.getElementById("new-age").value;
-  const sex = document.getElementById("new-sex").value;
-  const breed = document.getElementById("new-breed").value;
-  const temperament = document.getElementById("new-temperament").value;
-  const about_me = document.getElementById("new-about_me").value;
-  const about_you = document.getElementById("new-about_you").value;
-  if (
-    name &&
-    human &&
-    age &&
-    sex &&
-    breed &&
-    temperament &&
-    about_me &&
-    about_you
-  ) {
-    const response = await fetch(`/api/pets`, {
-      method: "POST",
-      body: JSON.stringify({
-        name,
-        human,
-        age,
-        sex,
-        breed,
-        temperament,
-        about_me,
-        about_you,
-      }),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-    console.log(response);
-    if (response.ok) {
-      document.location.replace("/profile");
-    } else {
-      alert(`Uh oh, couldn't add your pet. Try again!`);
-    }
-  }
-};
-
-// THIS IS BEYOND MVP IF WE WANT TO EDIT PUP PROFILES
-//   const editButtonHandler = async (event) => {
-//     if (event.target.hasAttribute('data-id')) {
-//       const id = event.target.getAttribute('data-id');
-//       const response = await fetch(`/api/posts/${id}`, {
-//         method: 'PUT',
-//       });
-//       if (response.ok) {
-//         document.location.replace('/editPost');
-//       } else {
-//         alert('Failed to update post');
-//       }
-//     }
-//   };
-
-// DELETE YOUR PET PROFILE
-// const delButtonHandler = async (event) => {
-//   if (event.target.hasAttribute('data-id')) {
-//     const id = event.target.getAttribute('data-id');
-//     const response = await fetch(`/api/posts/${id}`, {
-//       method: 'DELETE',
+// const newPupProfileHandler = async (event) => {
+//   event.preventDefault();
+//   console.log("function called");
+//   const name = document.getElementById("new-name").value;
+//   const human = document.getElementById("new-human").value;
+//   const age = document.getElementById("new-age").value;
+//   const sex = document.getElementById("new-sex").value;
+//   const breed = document.getElementById("new-breed").value;
+//   const temperament = document.getElementById("new-temperament").value;
+//   const about_me = document.getElementById("new-about_me").value;
+//   const about_you = document.getElementById("new-about_you").value;
+//   if (
+//     name &&
+//     human &&
+//     age &&
+//     sex &&
+//     breed &&
+//     temperament &&
+//     about_me &&
+//     about_you
+//   ) {
+//     const response = await fetch(`/api/pets`, {
+//       method: "POST",
+//       body: JSON.stringify({
+//         name,
+//         human,
+//         age,
+//         sex,
+//         breed,
+//         temperament,
+//         about_me,
+//         about_you,
+//       }),
+//       headers: {
+//         "Content-Type": "application/json",
+//       },
 //     });
+//     console.log(response);
 //     if (response.ok) {
-//       document.location.replace('/profile');
+//       document.location.replace("/profile");
 //     } else {
-//       alert('Failed to delete post');
+//       alert(`Uh oh, couldn't add your pet. Try again!`);
 //     }
 //   }
 // };
-
-//   document
-//     .querySelector('.post-list')
-//     .addEventListener('click', editButtonHandler);
-
-// document
-//   .querySelector('.post-list')
-//   .addEventListener('click', delButtonHandler);
 
 // EVENT DELEGATION FOR EACH PROFILE CARD
 const petHandler = (event) => {
@@ -215,21 +177,15 @@ const handleMiddle = (event) => {
   photo_id = event.target.parentElement.dataset.photo_id;
   console.log(event.target.tagName);
 };
-// create new pet event listener
-document
-  .querySelector(".new-pet-form")
-  .addEventListener("submit", newPupProfileHandler);
+
+
 // event delegation handler
-document
-  .querySelector(".pet-profile-card")
-  .addEventListener("click", petHandler);
+document.querySelector(".pet-profile-card").addEventListener("click", petHandler);
 // update pet event listener
-//document.getElementById('update-btn').addEventListener('click', updatePet)
+document.getElementById('update-btn').addEventListener('click', updatePet)
 // upload photo event listener
 // document
 //   .querySelector(".photo-upload-form")
 //   .addEventListener("submit", uploadImageHandler);
 
-document
-  .getElementById("btn-photo-edit")
-  .addEventListener("click", handleMiddle);
+document.getElementById("btn-photo-edit").addEventListener("click", handleMiddle);

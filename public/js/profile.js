@@ -64,14 +64,26 @@ const deletePet = async (event) => {
   const id = event.target.getAttribute("data-delete_id");
   console.log(id);
 
-  let confirmation = confirm(
-    "Are you sure you want to delete this pet profile?"
-  );
-
-  if (confirmation === true) {
-    const response = await fetch(`/api/pets/${id}`, {
-      method: "DELETE",
-    });
+    let confirmation = swal("Are you sure you want to delete this pet profile?", {
+      buttons: {
+          cancel: {
+            text: "Cancel",
+            value: null,
+            visible: true,
+            closeModal: true,
+          },
+          confirm: {
+            text: "YES",
+            value: true,
+            closeModal: true
+          }
+      },
+    }).then(async (res) =>{
+      console.log(res);
+      if (res) {
+        const response = await fetch(`/api/pets/${id}`, {
+            method: 'DELETE',
+        });
 
     if (response.ok) {
       document.location.reload();
@@ -79,7 +91,8 @@ const deletePet = async (event) => {
       alert(response.statusText);
     }
   }
-};
+}
+)};
 
 // get post.id to go to edit-post view
 const updatePet = async (event) => {

@@ -90,16 +90,9 @@ const deletePet = async (event) => {
     } else {
       alert(response.statusText);
     }
-<<<<<<< HEAD
-    })
-
-    console.log("confirmation", confirmation);
-
-    
-=======
   }
->>>>>>> main
-};
+}
+)};
 
 // get post.id to go to edit-post view
 const updatePet = async (event) => {

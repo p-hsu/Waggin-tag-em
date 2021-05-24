@@ -28,10 +28,10 @@
     <div class="col s12 m6 offset-m3">
       <div class="card">
         <div class="card-image">
-          <img src="/images/schafer-dog-4312716_1920.jpg">
+          <img src='/uploads/{{image.name}}'>
           <span class="card-title card-panel cyan lighten-1">{{name}}</span>
           <button id ="btn-photo-edit" data-pet_id="{{id}}" data-photo_id="{{image_id}}"
-            class="waves-effect waves-light modal-trigger btn btn-large btn-floating halfway-fab right red"
+            class="btn-photo-edit waves-effect waves-light modal-trigger btn btn-large btn-floating halfway-fab right red"
             href="#upload-photo-modal">
             <i class="material-icons">add_a_photo</i>
           </button>
@@ -133,7 +133,7 @@
           </div>
           
     </div>
-  </div>
+ 
 </div>
 
 {{!-- UPDATE PET --}}
@@ -197,7 +197,7 @@
         <button id="update-btn" class="btn waves-effect waves-light" type="submit" >Save Changes</button>
       </form>
     </div>
-  </div>
+
 </div>
 
 {{!-- PHOTO UPLOAD << --}} 
@@ -205,18 +205,18 @@
   <div class="modal-content">
     <div class="row">
       {{!-- --}}
-      <form action="/profile/new-pet" method="PUT  enctype="multipart/form-data" class="col s12 photo-upload-form"
+      <form class="col s12 photo-upload-form"
        >
         <div class="file-field input-field">
           <div class="btn">
               <i class="material-icons center">insert_photo</i>
-            <input id="myImage" type="file"  name="myImage">
+            <input id="image_file_edit" type="file">
           </div>
           <div class="file-path-wrapper">
-            <input class="file-path validate" type="text" id="image_file" placeholder=">> THIS IS A NON-FUNCTIONAL MOCKUP <<">
+            <input class="file-path validate" type="text" placeholder=">> THIS IS A NON-FUNCTIONAL MOCKUP <<">
           </div>
         </div>
-        <button class="btn photo-btn right" type="submit" id="photo-btn">Upload</button>
+        <button class="btn photo-btn right" id="photo-btn">Upload</button>
       </form>
     </div>
   </div>
@@ -263,20 +263,23 @@
 </div>
 
 
-{{else}}
-
-<h5 class="center">Log in to your account to view profile</h5>
-
-{{/if}}
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-<script src="/js/profile.js"></script>
+
+
+
+
 
 {{!-- Script for age and sex select dropdown --}}
 <script>  $(document).ready(function(){
     $('select').formSelect();
   });</script>
 
+{{else}}
+  <h5 class="center">Log in to your account to view profile</h5>
+{{/if}}
 
+
+<script src="/js/profile.js"></script>
 {{!-- Sweet Alert Script --}}
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>

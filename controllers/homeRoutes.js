@@ -42,28 +42,30 @@ router.get('/', (req, res) => {
 router.get('/profile', async (req, res) => {
     try {
         // Find the logged in user based on the session ID
+        if(req.session.logged_in){
         const userData = await User.findByPk(req.session.user_id, {
             attributes: { exclude: ['password'] },
             include: [
                 {
-                    model: Pet
-                },
-                {
-                    model: Image,
+                    model: Pet,
+                    include:{
+                        model: Image
+                    }
                 }
             ],
         });
-
+        console.log(userData)
         const user = userData.get({ plain: true });
         console.log(user)
         res.render('profile', {
             ...user,
-            logged_in: true
+            logged_in: req.session.logged_in
         });
+ }
     } catch (err) {
         res.status(500).json(err);
-  }
-});
+       
+}});
 
 // get request for new-pet view
 router.get('/profile/new-pet', withAuth, async (req, res) => res.render('new-pet', { logged_in: req.session.logged_in } ));

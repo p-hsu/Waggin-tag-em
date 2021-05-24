@@ -1,31 +1,30 @@
 const newPupProfileHandler = async (event) => {
     event.preventDefault();
     console.log("CREATE PUP FUNCTION CALLED")
-    const name = document.getElementById("new-name").value;
-    const human = document.getElementById("new-human").value;
-    const age = document.getElementById("new-age").value;
-    const sex = document.getElementById("new-sex").value;
-    const breed = document.getElementById("new-breed").value;
-    const temperament = document.getElementById("new-temperament").value;
-    const about_me = document.getElementById("new-about_me").value;
-    const about_you = document.getElementById("new-about_you").value;
+    const form = new FormData();
+    const name = document.getElementById('new-name').value;
+    form.append("name", name);
+    const human = document.getElementById('new-human').value;
+    form.append("human", human)
+    const age = document.getElementById('new-age').value;
+    form.append("age", age)
+    const sex = document.getElementById('new-sex').value;
+    form.append("sex", sex);
+    const breed = document.getElementById('new-breed').value;
+    form.append("breed", breed);
+    const temperament = document.getElementById('new-temperament').value;
+    form.append("temperament", temperament)
+    const about_me= document.getElementById('new-about_me').value;
+    form.append("about_me", about_me);
+    const about_you = document.getElementById('new-about_you').value;
+    form.append("about_you", about_you)
+    const image_value = document.getElementById('newImage').files[0];
+    form.append("image_value", image_value);
     
     if (name && human && age && sex && breed && temperament && about_me && about_you) {
         const response = await fetch(`/api/pets`, {
             method: 'POST',
-            body: JSON.stringify({
-            name,
-            human,
-            age,
-            sex,
-            breed,
-            temperament,
-            about_me,
-            about_you,
-            }),
-            headers: {
-            "Content-Type": "application/json",
-            },
+            body: form
         });
       console.log(response);
       if (response.ok) {

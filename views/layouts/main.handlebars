@@ -24,7 +24,7 @@
                       <li><a class="waves-effect waves-light btn" href="/">Home</a></li> 
                       {{#if logged_in}}
                       <li><a class="waves-effect waves-light btn" href="/profile">Profile</a></li>              
-                      <li><a class="waves-effect waves-light btn" id="logoutBtn" href="/">Logout</a></li>
+                      <li><a class="waves-effect waves-light btn logoutBtn">Logout</a></li>
                       {{else}}
                       <!-- Login Modal Trigger -->
                       <li><a class="waves-effect waves-light btn modal-trigger .modal-close" href="#modal1">Log In</a></li>              
@@ -42,7 +42,7 @@
           <!-- if logged in show dashboard and logout -->
           {{#if logged_in}}
           <li><a class="waves-effect waves-light btn" href="/profile">Profile</a></li>              
-          <li><a class="waves-effect waves-light btn" id="logoutBtn" href="/">Logout</a></li>
+          <li><a class="waves-effect waves-light btn logoutBtn">Logout</a></li>
           {{else}}
           <li><a class="waves-effect waves-light btn modal-trigger .modal-close" href="#modal1">Log In</a></li>              
           <li><a class="waves-effect waves-light btn modal-trigger .modal-close" href="#modal2">Create Account</a></li>

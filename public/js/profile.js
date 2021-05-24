@@ -148,31 +148,32 @@ const uploadImageHandler = async (event) => {
   let id = pup_selected;
   console.log(event.target);
   console.log(id);
-  const image_file = document.getElementById("image_file").value.trim();
-  let response;
-  const FILE_ACTUAL = document.getElementById("myImage").value.trim();
-  console.log(FILE_ACTUAL)
+  const image_file = document.getElementById("image_file_edit").files[0];
+  console.log(image_file)
+  // let response;
+  // const FILE_ACTUAL = document.getElementById("myImage").value.trim();
+  // console.log(FILE_ACTUAL)
   form.append('id', id);
-  form.append('photo_id', photo_id)
+  // form.append('photo_id', photo_id)
   form.append('image_file', image_file)
-  form.append('file', FILE_ACTUAL)
-  form = new URLSearchParams(form);
+  // form.append('file', FILE_ACTUAL)
+  // form = new URLSearchParams(form);
   // if value exists
   if (image_file) {
     // fetch from the GET endpoint
-    console.log(photo_id)
-    if (photo_id) {
-      response = await fetch(`/api/images/${photo_id}`, {
-        method: "PUT",
-        body: form,
-      });
-    } else {
+    // console.log(photo_id)
+    // if (photo_id) {
+    //   response = await fetch(`/api/images/${photo_id}`, {
+    //     method: "PUT",
+    //     body: form,
+    //   });
+    // } else {
       response = await fetch(`/api/images/upload`, {
-        method: "POST",
+        method: "PUT",
         body: form,
         // headers: {'Content-Type': 'multipart/form-data'}
       });
-    }
+    // }
     console.log(response);
     if (response.ok) {
       // If successful render photo onto modal
@@ -188,7 +189,7 @@ const handleMiddle = (event) => {
 
   pup_selected = event.target.parentElement.dataset.pet_id;
   photo_id = event.target.parentElement.dataset.photo_id;
-  console.log(event.target.tagName);
+  console.log(pup_selected);
 };
 
 
@@ -201,4 +202,6 @@ document.getElementById('update-btn').addEventListener('click', updatePet)
 //   .querySelector(".photo-upload-form")
 //   .addEventListener("submit", uploadImageHandler);
 
-document.getElementById("btn-photo-edit").addEventListener("click", handleMiddle);
+ document.getElementById("photo-btn").addEventListener("click", uploadImageHandler);
+
+ document.getElementById("btn-photo-edit").addEventListener("click", handleMiddle)

@@ -1,6 +1,7 @@
 const User = require('./Users');
 const Pet = require('./Pets');
-const Image = require('./images');
+const Image = require('./Images');
+const PetImage = require('./PetImages')
 
 User.hasMany(Pet, {
   foreignKey: 'user_id',
@@ -12,21 +13,13 @@ Pet.belongsTo(User, {
 });
 
 Pet.belongsTo(Image, {
-  foreignKey: 'image_id'
+  foreignKey: 'image_id',
+  through: PetImage
 })
 
-User.hasMany(Image, {
-  foreignKey: 'user_id',
-  onDelete: 'CASCADE'
-});
+// Image.belongsTo(Pet, {
+//   foreignKey: "image_id",
+//   through: PetImage
+// })
 
-Image.belongsTo(User, {
-  foreignKey: 'user_id'
-})
-
-Image.hasOne(Pet, {
-  foreignKey: 'image_id'
-})
-
-
-module.exports = { User, Pet, Image };
+module.exports = { User, Pet, Image, PetImage };

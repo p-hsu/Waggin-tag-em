@@ -14,11 +14,12 @@
 
 ### Project Status:
 
-**ONGOING**
+**COMPLETED**
 
 #### Issues to debug:
 
-**ONGOING**
+* Photo upload functionality: multer package saves photo into uploads folder and db but cannot render
+* Edit pet modal: does not display pet info to edit and will return empty fields unless user fills them out
 
 ## MVP
 
@@ -42,6 +43,7 @@ BACKEND:
     - sequelize
     - mysql2
     - heroku addons:create jawsdb
+    - sweetalert
 
 FRONTEND:
 1. CSS
@@ -49,10 +51,20 @@ FRONTEND:
 2. JavaScript
     - Materialize
     - Media Queries
+    - JQuery
 
 ### Functionality:
 
 The following lists all functions within this project:
+* user will see a homepage on first browser page with option to login or signup
+* user can login or signup through modal windows
+* if user login's in or signs up for a new account, user will be redirected to profile view
+* user will be able to view own pets on account if there are any
+* user can add a new pet
+    - user has the option to upload a photo : **SEE ISSUES [SECTION](#Issues-to-debug:)**
+* user can edit or delete the pet from the profile page
+* user can access homepage again and see a mock-up messaging option
+* user can logout
 
 ### Process:
 
@@ -64,18 +76,6 @@ Designated tasts and project member initials: see [**Project Members**](#project
 * [x] `README.md`: PH
 
 BACKEND:
-<<<<<<< HEAD
-* [ ] multer package and `datatype: BLOB` : SB/PH
-* [ ] Handlebars.js views : FW/PH/SB
-* [ ] Sequelize controllers : FW/PH/SB
-* [ ] Sequelize seeds : FW/PH/SB
-* [ ] Sequelize models : FW/PH/SB
-* [ ] Socket.IO : FW
-
-FRONTEND:
-* [ ] CSS: FW/PH/SB
-* [ ] JS: FW/PH/SB
-=======
 * [x] multer package and `datatype: BLOB` : SM/PH
 * [x] Handlebars.js views : FW/PH
 * [x] Sequelize controllers : FW/SM
@@ -85,11 +85,12 @@ FRONTEND:
 FRONTEND:
 * [x] CSS: FW
 * [x] JS: FW/PH/SM
->>>>>>> main
 
 ### Beyond MVP:
 
-To create an additional HTML with a pup "friending" feature that also has the ability to search for friends by location and view saved pup friends.
+* friending feature to save and view pup friends
+* using socket.IO to manage chat feature
+* geo-location feature to find local users and pull nearby resources as a way to do meetups
 ****
 
 ## Installation
@@ -113,7 +114,7 @@ Home page screenshot: please view the PDF file above for full wireframe
 
 ### MVP screenshot
 
-![MVP screenshot](XXXXXXXXXXXXX)
+![MVP screenshot](./assets/images/MVP.png)
 
 ****
 
@@ -121,7 +122,7 @@ Home page screenshot: please view the PDF file above for full wireframe
 
 Please use the following link to deploy a live URL of this project:
 
-[Heroku deployed site](https://afternoon-waters-57666.herokuapp.com/)
+[Heroku deployed site](https://limitless-caverns-66584.herokuapp.com/)
 
 
 ****

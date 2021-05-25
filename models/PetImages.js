@@ -1,9 +1,9 @@
 
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection.js');
-class Image extends Model {}
+class PetImage extends Model {}
 
-Image.init(
+PetImage.init(
   {
     // define columns
     id: {
@@ -12,27 +12,22 @@ Image.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    type: {
-      type: DataTypes.STRING,
+    image_id: {
+      type: DataTypes.INTEGER,
       allowNull: false,
-    },
-    name: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    data: {
-      type: DataTypes.BLOB("long"),
-      allowNull: false,
-    }
+      references: {
+          model: 'image',
+          key: 'id'
+      }
+  }
   },
-
   {
     sequelize,
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'image',
+    modelName: 'petimage',
   }
 );
 
-module.exports = Image;
+module.exports = PetImage;

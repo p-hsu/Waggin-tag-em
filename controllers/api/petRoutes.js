@@ -1,17 +1,21 @@
 const router = require('express').Router();
 const  {Pet, User, Image} = require('../../models');
 const withAuth = require('../../utils/auth');
-
+const upload = require('../../utils/multer.js')
 // creating new pet
-router.post('/', async (req, res) => {
+router.post('/',upload.single("image_value"), async (req, res) => {
     try {
+      const newImage = await Image.create({ type: req.file.mimetype, name: req.file.filename, data: req.file.path })
+      console.log(newImage)
+      if (newImage) {
       const newPet = await Pet.create({
         ...req.body,
+        image_id: newImage.id,
         user_id: req.session.user_id,
       });
-  
+    
       res.status(200).json({ pet: newPet, message: 'New pet added!' });
-    } catch (err) {
+    }} catch (err) {
       res.status(400).json(err);
     }
   });
@@ -69,5 +73,6 @@ router.delete('/:id', withAuth, async (req, res) => {
     res.status(500).json(err);
   }
 });
+
 
 module.exports = router;

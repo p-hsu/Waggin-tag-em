@@ -44,34 +44,39 @@ router.post("/upload", upload.single("myImage"), async (req, res)=> {
   }
 });
 
-router.put("/:id", upload.single("myImage"), withAuth, async (req, res) => {
+router.put("/upload", upload.single("image_file"), withAuth, async (req, res) => {
   // update a category by its `id` value
   console.log("PUT REQUEST GOOOOOOOOOOOOOOOOOOOOO");
   try {
-    if (req.body.photo_id) {
+    console.log(req.body)
+    const petData = await Pet.findByPk(req.body.id);
+    console.log(petData)
+    const petImageId = petData.image_id;
+    console.log(req.file)
+    if (petImageId) {
       const imageData = await Image.update(
         {
-          name: req.body.image_file,
+          type: req.file.mimetype, name: req.file.filename, data: req.file.path
         },
         {
           where: {
-            id: req.params.photo_id,
-            user_id: req.session.user_id,
+            id: petImageId
           },
         }
       );
-      if (imageData) {
-        const petImage = await Pet.update(
-          {
-            image_id: imageData.id,
-          },
-          {
-            where: {
-              id: req.body.id,
-            },
-          }
-        );
-      }
+      res.status(200).json({ message: "Photo updated!" });
+      // if (imageData) {
+      //   const petImage = await Pet.update(
+      //     {
+      //       image_id: imageData.id,
+      //     },
+      //     {
+      //       where: {
+      //         id: req.body.id,
+      //       },
+      //     }
+      //   );
+      // }
     }
     // else {
     //   let data = fs.readFileSync("./public/uploads/" + req.file.filename);
@@ -97,7 +102,7 @@ router.put("/:id", upload.single("myImage"), withAuth, async (req, res) => {
     //   }
     // }
 
-    res.status(200).json({ message: "Photo updated!" });
+ 
   } catch (err) {
     res.status(500).json(err);
   }

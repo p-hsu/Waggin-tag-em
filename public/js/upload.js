@@ -3,7 +3,7 @@
 const uploadImageHandler = async (event) => {
     event.preventDefault();
     // Collect file.original name from input field
-    const image_file = document.getElementById('image_file').value.trim();
+    const image_file = document.getElementById('image_file').file[0];
     // if value exists
     if (image_file) {
       // fetch from the GET endpoint
